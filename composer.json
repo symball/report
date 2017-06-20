@@ -1,0 +1,32 @@
+{
+    "name": "symball/report",
+    "description": "The bundles provides a suite of tools designed to speed up the creation of Excel style reports with Symfony.",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Simon Ball",
+            "email": "open-source@simonball.me",
+            "homepage": "https://simonball.me"
+        }
+    ],
+
+    "keywords": ["reports","xls","Excel", "symfony", "bundle"],
+    "homepage": "https://github.com/symball/report",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/symfony": "~2.6|~3.0",
+        "phpoffice/phpexcel": "~1.8.1"
+    },
+    "autoload": {
+        "exclude-from-classmap": ["/Tests/"],
+        "psr-4": {
+            "Symball\\ReportBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symball\\ReportBundle\\": ""
+        }
+    }
+}

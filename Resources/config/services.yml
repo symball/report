@@ -1,0 +1,71 @@
+
+services:
+    symball_report.excel_service:
+      class: Symball\ReportBundle\Service\Excel
+      arguments:
+          - '%symball_report.excel_factory_namespace%'
+          - ~
+          - ~
+    
+    symball_report.meta:
+        class: Symball\ReportBundle\Service\Meta
+        
+    symball_report.navigation.horizontal:
+        class: Symball\ReportBundle\Service\NavHorizontal
+        arguments: [2, 3]
+        
+    symball_report.report_builder:
+      class: Symball\ReportBundle\Service\ReportBuilder    
+      arguments:
+            - '@symball_report.excel_service'
+            - '@symball_report.meta'
+            - ~
+            - '@symball_report.style'
+    
+    symball_report.pattern:
+      class: Symball\ReportBundle\Service\ReportPattern
+    
+    symball_report.pattern.data_point_index:
+        class: Symball\ReportBundle\Patterns\DataPointIndex
+        tags:
+            - { name: symball_report.pattern, alias: data_point_index }
+            
+    symball_report.pattern.data_set:
+        class: Symball\ReportBundle\Patterns\DataSet
+        tags:
+            - { name: symball_report.pattern, alias: data_set }
+            
+    symball_report.pattern.set_headings:
+        class: Symball\ReportBundle\Patterns\SetHeadings
+        tags:
+            - { name: symball_report.pattern, alias: set_headings }
+            
+    symball_report.style:
+      class: Symball\ReportBundle\Service\ReportStyle
+    
+    symball_report.style.align:
+        class: Symball\ReportBundle\Styles\Align
+        tags:
+            - { name: symball_report.style, alias: align }
+            
+    symball_report.style.bg:
+        class: Symball\ReportBundle\Styles\Bg
+        tags:
+            - { name: symball_report.style, alias: bg }
+            
+    symball_report.style.border:
+        class: Symball\ReportBundle\Styles\Border
+        tags:
+            - { name: symball_report.style, alias: border }
+            
+            
+    symball_report.style.merge:
+        class: Symball\ReportBundle\Styles\Merge
+        tags:
+            - { name: symball_report.style, alias: merge }
+            
+            
+    symball_report.style.width:
+        class: Symball\ReportBundle\Styles\Width
+        tags:
+            - { name: symball_report.style, alias: width }

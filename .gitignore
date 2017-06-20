@@ -1,0 +1,7 @@
+*~
+**/.directory
+**/.php_cs.cache
+**/nbproject/
+**/nbbuild/
+**/nbdist/
+**/.nb-gradle/

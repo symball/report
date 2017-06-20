@@ -1,0 +1,3 @@
+symball_report:
+    default_report_path: ~
+    output_format: Excel2007
