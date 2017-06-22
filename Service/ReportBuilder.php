@@ -153,8 +153,8 @@ class ReportBuilder
      */
     public function newSet()
     {
-        // Check whether there are any more sets left
-        if (!$this->query->tick()) {
+        // Check whether the report is using query and whether any sets left
+        if ($this->query && !$this->query->tick()) {
             return false;
         }
 
@@ -196,7 +196,6 @@ class ReportBuilder
         $options = array_merge($this->meta->getOptions(), $options);
         $this->style->run($reference, $this, $coordString, $options);
     }
-
     /**
      * Return the navigation service object
      *
