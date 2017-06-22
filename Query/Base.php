@@ -9,9 +9,10 @@
  * that was distributed with this source code.
  */
 
-namespace Symball\ReportBundle\Service;
+namespace Symball\ReportBundle\Query;
 
 use Doctrine\Common\Persistence\ObjectRepository;
+use Symball\ReportBundle\Interfaces\QueryInterface;
 
 /**
  * The query class is responsible for performing information gathering operations
@@ -19,7 +20,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
  *
  * @author Simon Ball <simonball at simonball dot me>
  */
-class Query
+class Base implements QueryInterface
 {
     protected $numberDataSets = 1;
     protected $currentDataSet = 0;
@@ -222,7 +223,7 @@ class Query
     {
         return $this->numberDataSets;
     }
-
+       
     /**
      * Return the current modifiers in their array definition format
      *

@@ -1,12 +1,12 @@
 <?php
 
-namespace Symball\ReportBundle\Service;
+namespace Symball\ReportBundle\Query;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Symball\ReportBundle\Interfaces\QueryInterface;
-use Symball\ReportBundle\Service\Query;
+use Symball\ReportBundle\Query\Base;
 
-class QueryTimeInterval extends Query implements QueryInterface
+class TimeInterval extends Base implements QueryInterface
 {
     protected $currentDate;
     protected $interval;
