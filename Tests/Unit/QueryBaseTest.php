@@ -1,30 +1,22 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This file is part of
+ * 
+ * (c) symball <http://simonball.me>
+ * 
+ * For the full copyright and license information, please view the LICENSE file 
+ * that was distributed with this source code.
  */
 
-namespace Symball\ReportBundle\Tests\Unit;
+namespace Symball\ReportBundle\Service;
 
-/* The base PHPUnit test class */
-use PHPUnit\Framework\TestCase;
-
-use Symball\ReportBundle\Service\Query;
-use Doctrine\Common\Persistence\ObjectRepository;
-
-/* Extend the default PHPUnit test case */
-class QueryTest extends TestCase
-{
-    /* Test that posts can be instantiated */
-    public function testCreation()
-    {
-        /* Create a post */
-        $query = new Query();
-        /* Check that it is an object type */
-        $this->assertEquals(true, is_object($query));
-    }
+/**
+ * Description of QueryBase
+ *
+ * @author Simon Ball <simonball at simonball dot me>
+ */
+class QueryBase {
     public function testSetNumberDataSets()
     {
         $query = new Query();
