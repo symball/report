@@ -15,6 +15,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 use Symball\ReportBundle\DependencyInjection\Compiler\ReportPatternPass;
+use Symball\ReportBundle\DependencyInjection\Compiler\ReportQueryPass;
 use Symball\ReportBundle\DependencyInjection\Compiler\ReportStylePass;
 
 class SymballReportBundle extends Bundle
@@ -24,6 +25,7 @@ class SymballReportBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new ReportPatternPass());
+        $container->addCompilerPass(new ReportQueryPass());
         $container->addCompilerPass(new ReportStylePass());
     }
 }

@@ -48,7 +48,7 @@ class MetaTest extends TestCase
     public function testOptions() {
         $meta = new Meta();
         
-        $meta->setOptions(['test_key' => 'test_value']);
+        $meta->setOption('test_key', 'test_value');
         $this->assertEquals('test_value', $meta->getOption('test_key'));
         
         $meta->setOptions([
@@ -58,9 +58,8 @@ class MetaTest extends TestCase
         $this->assertEquals('a second value', $meta->getOption('second_key'));
         $this->assertEquals('test_value', $meta->getOption('test_key'));
         
-        $meta->setOptions(['test_key' => 'a new value for this option']);
+        $meta->setOption('test_key', 'a new value for this option');
         $this->assertEquals('a new value for this option', $meta->getOption('test_key'));
-        $this->assertEquals(3, count($meta->getOptions()));
                 
     }
     

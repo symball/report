@@ -69,3 +69,16 @@ services:
         class: Symball\ReportBundle\Styles\Width
         tags:
             - { name: symball_report.style, alias: width }
+            
+    symball_report.query:
+        class: Symball\ReportBundle\Service\ReportQuery
+        
+    symball_report.query.base:
+        class: Symball\ReportBundle\Query\Base
+        tags:
+            - { name: symball_report.query, alias: base }
+            
+    symball_report.query.time_interval:
+        class: Symball\ReportBundle\Query\TimeInterval
+        tags:
+            - { name: symball_report.query, alias: time_interval }
