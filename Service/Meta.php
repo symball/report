@@ -205,10 +205,10 @@ class Meta
    * .
    *
    * @param string $key          A reference key for the piece of data
-   * @param [type] $defaultValue The default also defines type of column
+   * @param string|integer $defaultValue The default also defines type of column
    * @param array  $options      Additional parameters for the column to use
    *
-   * @return [type] [description]
+   * @return $this
    */
     public function column(
         $key,
@@ -248,7 +248,7 @@ class Meta
    * the meta data.
    * TODO - This is quite messy, rewrite more efficiently.
    *
-   * @param [type] $inputData [description]
+   * @param array $inputData A set of data which conforms to the column specification
    * @return $this
    */
     public function setData($inputData)
@@ -268,7 +268,7 @@ class Meta
     /**
      * Return the information array relating to a specific column
      *
-     * @param type $key
+     * @param string|integer $key
      * @return array
      * @throws \Exception
      */
@@ -299,8 +299,8 @@ class Meta
     /**
      * Return a specific piece of data from the current data point
      *
-     * @param type $key
-     * @return type
+     * @param string|integer $key
+     * @return mixed
      */
     public function getPointValue($key)
     {

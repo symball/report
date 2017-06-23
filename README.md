@@ -13,7 +13,12 @@ The bundles provides a suite of tools designed to speed up the creation of Excel
 
 This bundle was conceived due to a project that required the creation of many reports and there being a current shortage of bundles to fulfill the need. Rather than choosing to repeat the same code over, I made a wrapper with some simple utility functions and, before I knew it, after making it flexible enough to support various features of a report, had a bundle.
 
+[![Latest Stable Version](https://poser.pugx.org/symball/report/v/stable)](https://packagist.org/packages/symball/report)
+[![Build Status](https://scrutinizer-ci.com/g/symball/report/badges/build.png?b=master)](https://scrutinizer-ci.com/g/symball/report/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/symball/report/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/symball/report/?branch=master)
+
 ---
+
 
 Installation
 ------------

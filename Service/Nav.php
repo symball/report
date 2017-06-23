@@ -206,7 +206,7 @@ class Nav
     /**
      * Reset both the and column pointer to either spreadsheet or set
      *
-     * @param type $type
+     * @param string $type The human friendly syntax for what position to use
      * @return $this
      */
     public function reset($type = 'intitial')
@@ -233,10 +233,10 @@ class Nav
      * Get the spreadsheet object coord from a numeric value
      * If no parameters are used, the context coord will be returned.
      *
-     * @param bool $column [description]
-     * @param bool $row    [description]
+     * @param string|integer $column Either integer index or human friendly syntax
+     * @param string|integer $row    Either integer index or human friendly syntax
      *
-     * @return [type] [description]
+     * @return string|interger [description]
      */
     public function coord($column = false, $row = false)
     {
@@ -278,7 +278,7 @@ class Nav
      * @param string $input
      * @param string $axis
      *
-     * @return type
+     * @return integer
      */
     public function parseNavReference($input = '', $axis = 'column')
     {
@@ -312,7 +312,7 @@ class Nav
      * @param string $type
      * @param bool   $asLetter
      *
-     * @return type
+     * @return string|integer The column pointer as either index or letter
      */
     public function column($type = 'current', $asLetter = false)
     {
@@ -334,7 +334,7 @@ class Nav
      *
      * @param string $type
      *
-     * @return int
+     * @return int The row index
      */
     public function row($type = 'current')
     {
