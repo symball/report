@@ -199,7 +199,7 @@ class ReportBuilder
     /**
      * Return the navigation service object
      *
-     * @return Nav
+     * @return NavInterface
      */
     public function nav()
     {
@@ -239,7 +239,7 @@ class ReportBuilder
     /**
      * Return the data handling query service
      *
-     * @return Query
+     * @return QueryInterface
      */
     public function query()
     {

@@ -64,14 +64,14 @@ class Excel
     }
 
     /**
-   * Create a new sheet within the excel object and ready the service for it.
-   * This in essence resets most things so make sure you have finished working
-   * on your sheet before creating another.
-   *
-   * @param string $title The name of the sheet
-   *
-   * @return [type] [description]
-   */
+     * Create a new sheet within the excel object and ready the service for it.
+     * This in essence resets most things so make sure you have finished working
+     * on your sheet before creating another.
+     *
+     * @param string $title The name of the sheet
+     *
+     * @return [type] [description]
+     */
     public function newSheet($title = '')
     {
         if (!$this->excelObject) {
@@ -158,12 +158,12 @@ class Excel
         $this->reportPath = $path;
     }
 
-  /**
-   * Set the "excel type" that will PHPExcel will output
-   * Excel2007 / Excel5 / Excel2003XML / SYLK / OOCalc / CSV / HTML.
-   *
-   * @param string $format [description]
-   */
+    /**
+     * Set the "excel type" that will PHPExcel will output
+     * Excel2007 / Excel5 / Excel2003XML / SYLK / OOCalc / CSV / HTML.
+     *
+     * @param string $format [description]
+     */
     public function setOutputFormat($format)
     {
 
@@ -193,7 +193,7 @@ class Excel
     }
 
     /**
-     * @return object
+     * @return \PHPExcel
      */
     public function getExcelObject()
     {
@@ -221,7 +221,7 @@ class Excel
      * is able to export
      *
      * @param string $format
-     * @return boolean
+     * @return boolean|null
      */
     public function checkOutputFormat($format)
     {
@@ -241,7 +241,7 @@ class Excel
     }
 
     /**
-     * @param type $title
+     * @param string $title
      */
     protected function setCurrentSheetTitle($title)
     {
