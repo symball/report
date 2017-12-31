@@ -141,6 +141,8 @@ class ReportBuilder
             $this->query->reset();
         }
 
+        $this->status('initial');
+
         return $this;
     }
 
