@@ -2,10 +2,10 @@
 
 /*
  * This file is part of the ReportBundle package
- * 
+ *
  * (c) symball <http://simonball.me>
- * 
- * For the full copyright and license information, please view the LICENSE file 
+ *
+ * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
@@ -57,7 +57,7 @@ class ReportBuilder
     public function setQuery(QueryInterface $query)
     {
         $this->query = $query;
-        
+
         return $this;
     }
 
@@ -70,14 +70,14 @@ class ReportBuilder
     public function setNav(NavInterface $nav)
     {
         $this->nav = $nav;
-        
+
         return $this;
     }
 
     /**
      * Fill in a literal value in the cell at current nav pointer
      *
-     * @param type $value
+     * @param mixed $value
      */
     public function write($value)
     {
@@ -118,10 +118,10 @@ class ReportBuilder
     {
         if ($newStatus) {
             $this->status = $newStatus;
-            
+
             return $this;
         } else {
-            
+
             return $this->status;
         }
     }
@@ -153,6 +153,8 @@ class ReportBuilder
      */
     public function newSet()
     {
+        $this->meta->clear();
+
         // Check whether the report is using query and whether any sets left
         if ($this->query && !$this->query->tick()) {
             return false;
@@ -161,7 +163,6 @@ class ReportBuilder
         // Is there cause to move the poingter
         if ($this->status() == 'running') {
             $this->nav->movePointerAlong($this->meta->columnCount());
-            $this->meta->clear();
         } else {
             $this->status('running');
         }
@@ -233,7 +234,7 @@ class ReportBuilder
      */
     public function excel()
     {
-        return $this->excel;
+        return $this->excelService;
     }
 
     /**
