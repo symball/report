@@ -2,10 +2,10 @@
 
 /*
  * This file is part of the ReportBundle package
- * 
+ *
  * (c) symball <http://simonball.me>
- * 
- * For the full copyright and license information, please view the LICENSE file 
+ *
+ * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
@@ -14,11 +14,11 @@ namespace Symball\ReportBundle\Service;
 
 /**
  * The navigation service is responsible for handling the position of the
- * spreadsheet pointer 
+ * spreadsheet pointer
  *
  * @author Simon Ball <simonball at simonball dot me>
  */
-class Nav
+abstract class Nav
 {
 
     /**
@@ -302,7 +302,9 @@ class Nav
                 break;
         }
 
-        return $this->$propertyName;
+        if(isset($propertyName)) {
+          return $this->$propertyName;
+        }
     }
 
     /**
