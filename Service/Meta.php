@@ -2,10 +2,10 @@
 
 /*
  * This file is part of the ReportBundle package
- * 
+ *
  * (c) symball <http://simonball.me>
- * 
- * For the full copyright and license information, please view the LICENSE file 
+ *
+ * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
@@ -13,7 +13,7 @@
 namespace Symball\ReportBundle\Service;
 
 /**
- * The meta service acts as a data broker in which the column headings, data 
+ * The meta service acts as a data broker in which the column headings, data
  * points and various options are handled
  *
  * @author Simon Ball <simonball at simonball dot me>
@@ -96,6 +96,8 @@ class Meta
     /**
      * Reset data set values for all data points back to the defaults as in the
      * column definition
+     *
+     * @return $this For method chaining
      */
     public function clear()
     {
@@ -104,6 +106,20 @@ class Meta
             $this->dataPoints,
             $this->dataPointMeta
         );
+
+        return $this;
+    }
+
+    /**
+     * Remove reference to all existing data points
+     *
+     * @return $this For method chaining
+     */
+    public function clearDataPoints()
+    {
+        $this->dataPoints = array();
+
+        return $this;
     }
 
   /**
@@ -228,7 +244,7 @@ class Meta
         }
 
         // Does it have a title
-        if (!isset($options['title']) && $options['visible'] == true) {
+        if (!isset($options['title']) && $options['visible'] === true) {
             $options['title'] = ucwords(str_replace('_', ' ', $key));
         }
 

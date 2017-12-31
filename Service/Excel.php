@@ -2,10 +2,10 @@
 
 /*
  * This file is part of the ReportBundle package
- * 
+ *
  * (c) symball <http://simonball.me>
- * 
- * For the full copyright and license information, please view the LICENSE file 
+ *
+ * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
@@ -32,6 +32,10 @@ class Excel
     protected $currentSheetTitle;
 
     private $sheet;
+
+    private $reportPath;
+
+    private $outputFormat;
 
     /**
      *
@@ -112,7 +116,7 @@ class Excel
         // If the user is trying to specify file format themself, check it is
         // usable
         if ($outputFormat) {
-            if (!$this->checkOutputFormat($outputFormat)) {
+            if ($this->checkOutputFormat($outputFormat) === false) {
                 throw new \Exception('Output format not supported: ' . $outputFormat);
             }
         } else {
@@ -169,7 +173,7 @@ class Excel
 
         // TODO - After converting to facade, add check supported type function
         // Check that it is one of the accepted types
-        if (!$this->checkOutputFormat($format)) {
+        if ($this->checkOutputFormat($format) === false) {
             throw new \Exception('Output format not supported: ' . $format);
         }
 

@@ -2,10 +2,10 @@
 
 /*
  * This file is part of the ReportBundle package
- * 
+ *
  * (c) symball <http://simonball.me>
- * 
- * For the full copyright and license information, please view the LICENSE file 
+ *
+ * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
@@ -22,21 +22,49 @@ use Symball\ReportBundle\Interfaces\QueryInterface;
  */
 class Base implements QueryInterface
 {
+
+    /**
+     * A limit to the number of rounds that the report builder will run
+     * @var integer
+     */
     protected $numberDataSets = 1;
+
+    /**
+     * pointer tracking
+     * @var integer
+     */
     protected $currentDataSet = 0;
+
+    /**
+     * For any query modifiers that will be used when the data query is run.
+     * This gets reset every record set
+     *
+     * @var array
+     */
     protected $modifiers = [];
+
+    /**
+     * A Doctrine query object that is used for pulling data in to the builder
+     * @var object
+     */
     protected $queryBase;
-    
+
+    /**
+     * The Doctrine repository class used in the query
+     * @var object
+     */
+    protected $repository;
+
     /**
      * Stringify the current data set
-     * 
+     *
      * @return string
      */
     public function __toString()
     {
         return $this->getTitle();
     }
-            
+
     /**
      * Set the tracking parameters back to their base value
      * @return $this
@@ -44,8 +72,8 @@ class Base implements QueryInterface
     public function reset()
     {
         $this->numberDataSets = 1;
-        $this->currentDataset = 0;
-        
+        $this->currentDataSet = 0;
+
         return $this;
     }
 
@@ -65,7 +93,7 @@ class Base implements QueryInterface
             throw new \InvalidArgumentException('Cannot have a negative number of sets');
         }
         $this->numberDataSets = $count;
-        
+
         return $this;
     }
 
@@ -223,7 +251,7 @@ class Base implements QueryInterface
     {
         return $this->numberDataSets;
     }
-       
+
     /**
      * Return the current modifiers in their array definition format
      *
@@ -235,7 +263,7 @@ class Base implements QueryInterface
     }
     /**
      * Display the set heading
-     * 
+     *
      * @return string
      */
     public function getTitle()
